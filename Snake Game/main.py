@@ -13,6 +13,7 @@ class Snake:
         self.pos += self.speed * self.size
         self.tail[0] = self.pos
         if len(self.tail) > 1:
+            # Move the last element to the front and delete it after
             self.tail.insert(0, self.tail[len(self.tail) - 1])
             self.tail.pop()
 
@@ -30,7 +31,7 @@ class Snake:
         if self.pos.x < 0 or self.pos.x > width - self.size or self.pos.y < 0 or self.pos.y > height - self.size:
             return True
         # It kinda works, but there might be bugs
-        # You can die if you are not over 3 in length, eh calling this a feature 
+        # You can't die if you are not over 3 in length, eh calling this a feature 
         # TODO find a better way to check this
         for i in range(2, len(self.tail)):
             if self.pos == self.tail[i]:
