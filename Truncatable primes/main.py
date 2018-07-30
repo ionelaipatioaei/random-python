@@ -16,16 +16,16 @@ def is_trunc(num, mode = "right"):
     arr = []
     for i in range(0, len(str(num))):
         arr.append(str(num)[i])
-        # Check to see if the number contains 0
+        # A number is not truncatable if it contains 0
         if arr[i] == "0":
             return False
 
     while len(arr) > 1:
         if is_prime(int("".join(arr))):
             if mode == "right":
-                arr.pop() # For left truncatable primes
+                arr.pop() # For right truncatable primes
             else:
-                arr.pop(0) # For right truncatable primes
+                arr.pop(0) # For left truncatable primes
         else:
             return False
 
@@ -50,5 +50,3 @@ while n < int(options[1]):
 file.close()
 
 print(options)
-
-# print(is_trunc(317))
