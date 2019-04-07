@@ -68,7 +68,7 @@ class Food:
 
     def show(self):
         no_stroke()
-        fill(255, 0, 0)
+        fill(randint(20,255), randint(20,255), randint(20,255))
         rect(self.pos, self.snake.size, self.snake.size)
 
 snake = Snake(20)
